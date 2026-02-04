@@ -1,4 +1,4 @@
-# 🎫 IT Helpdesk Ticketing System
+🎫 IT Helpdesk Ticketing System
 
 A comprehensive web-based helpdesk ticketing system designed for IT support teams to manage and track technical issues efficiently.
 
