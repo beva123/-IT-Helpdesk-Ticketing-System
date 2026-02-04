@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Helpdesk Ticketing System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎫 IT Helpdesk System</h1>
+            <p>Comprehensive ticket management for IT support</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card open">
+                    <h3>Open Tickets</h3>
+                    <p class="stat-number" id="openCount">0</p>
+                </div>
+                <div class="stat-card progress">
+                    <h3>In Progress</h3>
+                    <p class="stat-number" id="progressCount">0</p>
+                </div>
+                <div class="stat-card resolved">
+                    <h3>Resolved</h3>
+                    <p class="stat-number" id="resolvedCount">0</p>
+                </div>
+                <div class="stat-card total">
+                    <h3>Total Tickets</h3>
+                    <p class="stat-number" id="totalCount">0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="ticket-form-section">
+                <h2>Create New Ticket</h2>
+                <form id="ticketForm">
+                    <div class="form-group">
+                        <label for="userName">User Name:</label>
+                        <input type="text" id="userName" required placeholder="e.g., John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Email:</label>
+                        <input type="email" id="userEmail" required placeholder="user@company.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="Finance">Finance</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Sales">Sales</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Operations">Operations</option>
+                            <option value="IT">IT</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issueType">Issue Type:</label>
+                        <select id="issueType" required>
+                            <option value="">Select Issue Type</option>
+                            <option value="Hardware">Hardware Issue</option>
+                            <option value="Software">Software Issue</option>
+                            <option value="Network">Network/Connectivity</option>
+                            <option value="Email">Email Issue</option>
+                            <option value="Printer">Printer Issue</option>
+                            <option value="Password">Password Reset</option>
+                            <option value="Account">Account Access</option>
+                            <option value="VPN">VPN Issue</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority:</label>
+                        <select id="priority" required>
+                            <option value="">Select Priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Issue Description:</label>
+                        <textarea id="description" rows="4" required placeholder="Please describe the issue in detail..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Submit Ticket</button>
+                </form>
+            </div>
+
+            <div class="tickets-section">
+                <div class="section-header">
+                    <h2>Active Tickets</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="Open">Open</button>
+                        <button class="filter-btn" data-filter="In Progress">In Progress</button>
+                        <button class="filter-btn" data-filter="Resolved">Resolved</button>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" id="searchTickets" placeholder="Search tickets by ID, user, or description...">
+                </div>
+
+                <div id="ticketsList" class="tickets-list">
+                    <!-- Tickets will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for ticket details -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ticket Details</h2>
+            <div id="ticketDetails"></div>
+            <div class="modal-actions">
+                <select id="statusUpdate" class="status-select">
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Closed">Closed</option>
+                </select>
+                <button id="updateStatus" class="btn-primary">Update Status</button>
+                <button id="deleteTicket" class="btn-danger">Delete Ticket</button>
+            </div>
+            <div class="comments-section">
+                <h3>Comments / Notes</h3>
+                <textarea id="commentText" rows="3" placeholder="Add a comment or note..."></textarea>
+                <button id="addComment" class="btn-secondary">Add Comment</button>
+                <div id="commentsList" class="comments-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
